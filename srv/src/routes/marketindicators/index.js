@@ -11,26 +11,26 @@ var Models = require('../../models');
 module.exports = function attachHandlers(router) {
 
     // Get index
-    router.get('/marketindicators', listMarketIndicators);
+    router.get('/api/marketindicators', listMarketIndicators);
 
     // Get detail
-    router.get('/marketindicators/:id', viewMarketIndicator);
+    router.get('/api/marketindicators/:id', viewMarketIndicator);
 
     // Post new 
-    router.post('/marketindicators', createMarketIndicator);
+    router.post('/api/marketindicators', createMarketIndicator);
 
     // Update
-    router.put('/marketindicators/:id', updateMarketIndicator);
+    router.put('/api/marketindicators/:id', updateMarketIndicator);
 
     // Delete
-    router.del('/marketindicators/:id', removeMarketIndicator);
+    router.del('/api/marketindicators/:id', removeMarketIndicator);
 };
 
 //------------------------------------------------------------------------------
 
 function listMarketIndicators(req, res, next) {
     // Fetch by id
-    Models.MarketIndicator.find().toArray(function(e, result) {
+    Models.MarketIndicator.find({}, function(e, result) {
         if (e) {
             return next(e);
         }

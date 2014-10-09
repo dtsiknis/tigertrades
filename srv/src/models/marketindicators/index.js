@@ -15,7 +15,7 @@ var MarketIndicator = module.exports = function (db) {
 
 MarketIndicator.prototype.find = function (query, callback) {
     this.market_indicators.find(query, function (err, results) {
-        return callback(err, results);
+        return results.toArray(callback);
     });
 };
 

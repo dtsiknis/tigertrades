@@ -1,0 +1,14 @@
+<div class="jumbotron text-center">
+    <h1>Market Indicators</h1>
+
+    <p>{{ tagline }}</p>
+
+    <ul>
+        <li ng-repeat="indicator in marketIndicators">
+            Date: Market Signal: {{indicator.type}}
+        </li>
+        <li ng-if="marketIndicators.length == 0">
+            <strong>No signals found</strong>
+        </li>
+    </ul>
+</div>
